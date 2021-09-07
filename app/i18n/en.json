@@ -30,5 +30,24 @@
   "storybook": {
     "placeholder": "Placeholder",
     "field": "Field"
+  },
+  "postList": {
+    "title": "title",
+    "url": "url",
+    "author": "author",
+    "created_at": "created_at",
+    "story_url": "story_url",
+    "story_title": "story_title",
+    "story_text": "story_text",
+    "story_id": "story_id",
+    "num_comments": "num_comments"
+  },
+  "randomInput": {
+    "placeholder": "Enter Id",
+    "submit": "Submit",
+    "randomId": "Random Id",
+    "name": "name",
+    "nasa_jpl_url": "nasa_jpl_url",
+    "is_potentially_hazardous_asteroid": "is_potentially_hazardous_asteroid"
   }
 }
