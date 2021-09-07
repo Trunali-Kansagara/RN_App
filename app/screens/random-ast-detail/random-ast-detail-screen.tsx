@@ -20,7 +20,6 @@ export const RandomAstDetailScreen = observer(function RandomAstDetailScreen() {
   const { randomIdStore } = useStores()
   const { astData } = randomIdStore
   const { name, nasa_jpl_url, is_potentially_hazardous_asteroid } = astData
-  console.log("astData====", astData)
 
   // Pull in navigation via hook
   const navigation = useNavigation()
