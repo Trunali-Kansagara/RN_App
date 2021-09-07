@@ -13,3 +13,4 @@ export type GetCharactersResult = { kind: "ok"; characters: Character[] } | Gene
 export type GetCharacterResult = { kind: "ok"; character: Character } | GeneralApiProblem
 export type GetPostResult = { kind: "ok"; post: any } | GeneralApiProblem
 export type GetRandomIDResult = { kind: "ok"; randomData: any } | GeneralApiProblem
+export type GetCountryResult = { kind: "ok"; country: any } | GeneralApiProblem

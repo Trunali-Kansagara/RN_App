@@ -10,6 +10,7 @@ const CONTAINER: ViewStyle = {
   flexDirection: "row",
   alignItems: "center",
   paddingVertical: spacing[1],
+  justifyContent: "center",
 }
 
 const TEXT: TextStyle = {

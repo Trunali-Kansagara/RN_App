@@ -49,5 +49,12 @@
     "name": "name",
     "nasa_jpl_url": "nasa_jpl_url",
     "is_potentially_hazardous_asteroid": "is_potentially_hazardous_asteroid"
+  },
+  "countryInput": {
+    "placeholder": "Enter Country",
+    "submit": "Submit",
+    "capital": "capital",
+    "population": "population",
+    "latlng": "latlng"
   }
 }
