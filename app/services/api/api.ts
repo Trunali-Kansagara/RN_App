@@ -2,6 +2,7 @@ import { ApisauceInstance, create, ApiResponse } from "apisauce"
 import { getGeneralApiProblem } from "./api-problem"
 import { ApiConfig, DEFAULT_API_CONFIG } from "./api-config"
 import * as Types from "./api.types"
+import { API_TOKEN } from "../../utils/utils"
 
 /**
  * Manages all requests to the API.
@@ -95,6 +96,67 @@ export class Api {
         name: response.data.name,
       }
       return { kind: "ok", user: resultUser }
+    } catch {
+      return { kind: "bad-data" }
+    }
+  }
+
+  async getPost(pageNo: number): Promise<Types.GetRandomIDResult> {
+    // make the api call
+    const response: ApiResponse<any> = await this.apisauce.get(
+      `search_by_date?tags=story&page=${pageNo}`,
+    )
+
+    // the typical ways to die when calling an api
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    // transform the data into the format we are expecting
+    try {
+      const resultUser = response.data
+      return { kind: "ok", post: resultUser }
+    } catch {
+      return { kind: "bad-data" }
+    }
+  }
+  async getRandomId(): Promise<Types.GetRandomIDResult> {
+    // make the api call
+    const response: ApiResponse<any> = await this.apisauce.get(
+      `https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=${API_TOKEN}`,
+    )
+
+    // the typical ways to die when calling an api
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    // transform the data into the format we are expecting
+    try {
+      const resultUser = response.data
+      return { kind: "ok", randomData: resultUser }
+    } catch {
+      return { kind: "bad-data" }
+    }
+  }
+  async getAstData(ID: string): Promise<Types.GetRandomIDResult> {
+    // make the api call
+    const response: ApiResponse<any> = await this.apisauce.get(
+      `https://api.nasa.gov/neo/rest/v1/neo/${ID}?api_key=${API_TOKEN}`,
+    )
+
+    // the typical ways to die when calling an api
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    // transform the data into the format we are expecting
+    try {
+      const resultUser = response.data
+      return { kind: "ok", randomData: resultUser }
     } catch {
       return { kind: "bad-data" }
     }
